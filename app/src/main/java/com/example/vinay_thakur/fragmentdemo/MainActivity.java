@@ -25,15 +25,26 @@ public class MainActivity extends AppCompatActivity implements ListFragmentDemo.
     }
 
     @Override
-    public void onlistclicked(int pos) {
+    public String onlistclicked(int pos) {
         presenter.onlistclicked("hello"+pos);
+        return "";
         //listFragmentDemo.updateit("hello"+pos);
     }
 
     @Override
-    public void updatetext( String data) {
-        ListDetailsFragmentDemo listFragmentDemo=(ListDetailsFragmentDemo)getFragmentManager().findFragmentById(R.id.listDetailFragment);
+    public String updatetext( String data) {
+       ListDetailsFragmentDemo listFragmentDemo=(ListDetailsFragmentDemo)getFragmentManager().findFragmentById(R.id.listDetailFragment);
         listFragmentDemo.updateit(data);
         Log.d("checkher","got it"+data);
+        return "";
+    }
+
+    @Override
+    public String getdata() {
+        return null;
+    }
+    String data()
+    {
+       return "dd";
     }
 }

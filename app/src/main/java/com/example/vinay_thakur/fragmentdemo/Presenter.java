@@ -19,8 +19,8 @@ public class Presenter implements DataContract.Presenter {
            model=new Data();
     }
     @Override
-    public void onlistclicked(String text) {
+    public String onlistclicked(String text) {
         String data=text;
-        view.updatetext(data);
+        return  view.updatetext(data);
     }
 }

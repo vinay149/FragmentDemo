@@ -20,10 +20,9 @@ import java.util.ArrayList;
 /**
  * Created by vinay_thakur on 7/14/2018.
  */
-public class ListFragmentDemo extends Fragment implements  DataContract.View{
+public class ListFragmentDemo extends Fragment {
 
 
-    DataContract.Presenter datacontract;
     ListClicked listClicked;
     int pos;
     ArrayList<String> arrayList=new ArrayList<>();
@@ -62,14 +61,11 @@ public class ListFragmentDemo extends Fragment implements  DataContract.View{
 
 
 
-    @Override
-    public void updatetext(String s) {
 
-        Log.d("checkhere",""+s);
-    }
+
     interface ListClicked
     {
-        void onlistclicked(int pos);
+        String onlistclicked(int pos);
     }
     @Override
     public void onStart() {

@@ -8,7 +8,8 @@ public class DataContract  {
 
     interface View
     {
-        void updatetext(String s);
+        String updatetext(String s);
+        String getdata();
 
     }
     interface Model
@@ -17,7 +18,7 @@ public class DataContract  {
     }
     interface Presenter
     {
-        void onlistclicked(String text);
+        String onlistclicked(String text);
     }
 
 }

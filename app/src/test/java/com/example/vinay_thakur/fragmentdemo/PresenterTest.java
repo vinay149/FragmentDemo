@@ -1,41 +1,32 @@
 package com.example.vinay_thakur.fragmentdemo;
+import android.widget.TextView;
 
-import android.util.Log;
-
+import static org.mockito.Mockito.when;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
-/**
- * Created by vinay_thakur on 7/15/2018.
- */
-public class PresenterTest {
-    public Data data;
-    public Presenter presenter;
-    public DataContract.View view;
-    @Before
-    public void setup()
-    {
-        data= Mockito.mock(Data.class);
-        view=Mockito.mock(DataContract.View.class);
-        presenter=new Presenter(view);
-    }
+@RunWith(MockitoJUnitRunner.class)
+public class PresenterTest{
+
+    @InjectMocks
+    Presenter presenter=new Presenter(new MainActivity());
+
+    @Mock
+    DataContract.View view;
+    @Mock
+    TextView textView;
+
     @Test
     public void checkTextData()
     {
-       // Mockito.when(data.getData()).thenReturn("hhj");
-        final String[] s1 = {""};
-        Presenter presenter=new Presenter(new DataContract.View() {
-            @Override
-            public void updatetext(String s) {
-               // Log.d("vinaytest",""+s);
-             s1[0] =s;
-            }
-        });
-        presenter.onlistclicked("hello");
-        Assert.assertEquals(s1[0],"hello");
-        //Mockito.verify(view,Mockito.times(1));
+       //  when(view.updatetext("hello")).thenReturn("hello");
+         ListDetailsFragmentDemo listDetailsFragmentDemo= new ListDetailsFragmentDemo();
+         //listDetailsFragmentDemo.updatetext("heelo");
+         when(view.updatetext("hello")).thenReturn("Hello");
+         Assert.assertEquals(presenter.onlistclicked("hello"),"Hello");
     }
-
 }

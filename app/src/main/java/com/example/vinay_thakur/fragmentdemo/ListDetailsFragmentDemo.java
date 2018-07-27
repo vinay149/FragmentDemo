@@ -1,5 +1,4 @@
 package com.example.vinay_thakur.fragmentdemo;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,12 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 /**
  * Created by vinay_thakur on 7/14/2018.
  */
 
-public class ListDetailsFragmentDemo extends Fragment implements ListFragmentDemo.ListClicked{
+public class ListDetailsFragmentDemo extends Fragment implements ListFragmentDemo.ListClicked ,DataContract.View{
 
     TextView textView;
     int postion;
@@ -32,20 +30,37 @@ public class ListDetailsFragmentDemo extends Fragment implements ListFragmentDem
         updateit(pos1);
       return v;
     }
-    void updateit(String s)
-    {
-        pos1=s;
-        Log.d("checkhere",s);
-        textView.setText(s);
-    }
+    String data;
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
-
     @Override
-    public void onlistclicked(int pos) {
+    public String onlistclicked(int pos) {
         Log.d("checkhere","clicked"+pos);
         postion=pos;
+        textView.setText("hello");
+        return "";
+
+    }
+    @Override
+    public String updatetext(String s) {
+        Log.d("helloee",s);
+        textView.setText(s);
+        data=s;
+       return s;
+    }
+    public String updateit(String s)
+    {
+        pos1=s;
+        // Log.d("checkhere",s);
+        //textView.setText(s);
+        return data;
+    }
+    @Override
+    public String getdata()
+    {
+        return "sss";
     }
 }
