@@ -9,7 +9,7 @@ public class DataContract  {
     interface View
     {
         String updatetext(String s);
-        String getdata();
+        void init(String value);
 
     }
     interface Model
